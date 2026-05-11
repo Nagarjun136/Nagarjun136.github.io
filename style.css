@@ -1,0 +1,245 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #140028, #2e0057, #0b001a);
+  color: white;
+  scroll-behavior: smooth;
+}
+
+/* NAVBAR */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+}
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #d8b4fe;
+}
+
+nav a:hover {
+  color: white;
+}
+
+/* HERO */
+
+.hero {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 80px;
+  font-weight: 800;
+}
+
+.hero span {
+  color: #a855f7;
+  text-shadow: 0 0 25px #a855f7;
+}
+
+.hero p {
+  margin-top: 15px;
+  font-size: 20px;
+  opacity: 0.8;
+}
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+/* Profile Image */
+
+.hero-image img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #a855f7;
+  box-shadow: 0 0 40px rgba(168, 85, 247, 0.8);
+  transition: 0.4s;
+}
+
+.hero-image img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 60px rgba(168, 85, 247, 1);
+}
+
+
+/* SECTIONS */
+
+.section {
+  padding: 80px 60px;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 40px;
+  margin-bottom: 40px;
+  color: #c084fc;
+}
+
+/* CARDS */
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.card {
+  background: rgba(255,255,255,0.05);
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255,255,255,0.1);
+  width: 300px;
+  transition: 0.4s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 30px rgba(168,85,247,0.6);
+}
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0,0,0,0.3);
+}
+/* ============================= */
+/* SECTION TRANSITION SYSTEM */
+/* ============================= */
+
+/* Hide all sections */
+.section {
+  display: none;
+  min-height: 100vh;
+  padding: 120px 60px;
+}
+
+/* Show only targeted section */
+.section:target {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Hero full screen */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hide hero when any section is active */
+body:has(.section:target) .hero {
+  display: none;
+}
+
+/* Default nav style */
+.nav-link {
+  position: relative;
+  transition: 0.3s;
+}
+
+/* Glow effect */
+.nav-link:hover {
+  color: white;
+  text-shadow: 0 0 10px #a855f7;
+}
+
+/* Active link highlight */
+body:has(#home:target) a[href="#home"],
+body:has(#about:target) a[href="#about"],
+body:has(#education:target) a[href="#education"],
+body:has(#skills:target) a[href="#skills"],
+body:has(#projects:target) a[href="#projects"],
+body:has(#contact:target) a[href="#contact"] {
+  color: white;
+  text-shadow: 0 0 15px #a855f7;
+}
+body:not(:has(.section:target)) a[href="#home"] {
+  color: white;
+  text-shadow: 0 0 15px #a855f7;
+}
+.resume-btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 30px;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #a855f7, #6d28d9);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
+}
+
+.resume-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 35px rgba(168, 85, 247, 1);
+}
+.projects-container {
+  display: flex;
+  flex-direction: column;   /* THIS makes it vertical */
+  gap: 30px;
+}
+
+
+#projects .card {
+  width: 70%;
+  max-width: 900px;
+  padding: 30px;
+}
+
+
+#about .card {
+  width: 65%;
+  max-width: 850px;
+  padding: 35px;
+}
+.about-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.about-list li {
+  margin-bottom: 15px;
+  position: relative;
+  padding-left: 25px;
+  line-height: 1.6;
+}
+
+.about-list li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: #a855f7;
+}
+
+
